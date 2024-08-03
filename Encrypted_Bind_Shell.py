@@ -1,7 +1,7 @@
 #!/bin/python3
 #
 # Title: Symmetric Encryption with Shared Key Bind Shell
-# Created By: Michael Repin
+# Created By: Mr.Exoplanet
 # Creation Date: 7/24/2024
 # packages Required: pycryptodome
 
