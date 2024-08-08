@@ -1,1 +1,1 @@
-Scripts I've Wrote To Make Life Easier |><|
+Scripts To Make Life Easier |><|
