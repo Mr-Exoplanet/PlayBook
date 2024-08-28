@@ -2,7 +2,7 @@
 
 # Created By: Mr.Exoplanet
 # Usage {./recon-web [URL]}
-# Enumarates a given website (Will take A Long Time Can Comment Out -A Flag on Nmap And Amass Tool for Quicker Run Time)
+# Enumarates Subdomain's/Domain's for given website 
 # Required Packages Pre Installed {Subfinder}{Assetfinder}{Amass}{Gowitness}
 # Set Varaibles & Colours
 domain=$1
