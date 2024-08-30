@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Created By: Mr.Exoplanet
+# Usage {./web-scan [URL]}
+# Enumarates a given website 
+# Required Packages Pre Installed {nmap}{wafw00f}{nikto}
+
+# Set Varaibles & Colours
+domain=$1
+YELLOW="\033[1;33m"
+RESET="\033[0m"
+# Create Folders To Store Results
+scan_path=$domain/scans_info
+pas_path=$domain/general_info
+
+if [ ! -d "$domain" ];then
+    mkdir $domain
+fi
+if [ ! -d "$scan_path" ];then
+    mkdir $scan_path
+fi
+if [ ! -d "$pas_path" ];then
+    mkdir $pas_path
+fi
+
+#General Info Section
+# Run Whois
+echo -e "${YELLOW} [+] Running Whois |><| ${RESET}"
+whois $domain > $pas_path/whois.txt
+# Run Dig
+echo -e "${YELLOW} [+] Running Dig |><| ${RESET}"
+dig $domain > $pas_path/dig.txt
+
+# Scans Section
+# Nmap Detaied Port Scan
+echo -e "${YELLOW} [+] Running Nmap |><| ${RESET}"
+nmap $domain -T5 -A -p- -oN $scan_path/nmap.txt
+# Web Firewall Detection
+echo -e "${YELLOW} [+] Running Waf00f |><| ${RESET}"
+wafw00f $domain > $scan_path/firewall.txt
+# Nitko Scan
+echo -e "${YELLOW} [+] Running Nikto |><| ${RESET}"
+nikto -h $domain -o $scan_path/Nikto.txt -Format txt
+
